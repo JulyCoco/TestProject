@@ -6,7 +6,7 @@ package singletonDemo;
  * 面试问题：dcl要不要加volatile，回答要加，问题出在指令重排序上 new SingletonD()这一步，分成3步，不加volatile可能出现指令重排
  * 举例子：A进来在做new SingletonD()这一步时，分3步：（1）申请内存空间，赋默认值（2）给其赋初始值（3）把instance指向它
  * 如果（2）（3）颠倒顺序，此时instance里面已经有值了（是默认值），然后B 过来，判断instacnce != null，就会把这个错误的值返回去
- * 解决办法：变量用volatile修饰，禁止指令重排
+ * 解决办法：变量用volatile修饰，禁止指令重排。
  */
 public class SingletonD {
     private static volatile SingletonD instance;
